@@ -167,6 +167,7 @@ body {
   display: inline-block;
   border-radius: 100px;
   transition: all 0.2s;
+  position: relative;
 }
 
 /* 
@@ -186,4 +187,39 @@ body {
 .btn-white {
   background-color: #fff;
   color: #777;
+}
+
+/* 
+pseudo element - add element that looks exactly like the button we have but behind it
+- must have content & property
+- treated as a child of actual element - takes the dimensions
+- need to set position to be right under real button (use absolute - make actual button position relative)
+- z-index: defines the position of the elements if they are 1 on top of the other (-1 means under)
+- transition property goes on the initial state
+*/
+.btn::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+/*
+- only when hovered, do we want the pseudo element to grow in size (using scale)
+- use opacity: 0 to get something to fade out
+*/
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
 }
