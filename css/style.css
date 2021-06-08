@@ -153,6 +153,18 @@ body {
   }
 }
 
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
 /* 
 - pseudo class to style element under special conditions
 - link: anchor element
@@ -222,4 +234,10 @@ pseudo element - add element that looks exactly like the button we have but behi
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
+}
+
+/* animation-fill-mode: backwards -  applies styles at 0% keyframe animation before animation starts (0.75s delay) */
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
 }
