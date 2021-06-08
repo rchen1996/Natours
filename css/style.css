@@ -96,6 +96,9 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* can declare everything in one line instead of writing them out as in main */
+  animation: moveInRight 1s ease-out;
 }
 
 /* 
@@ -113,6 +116,22 @@ body {
 
   80% {
     transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opactiy: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
   }
 
   100% {
