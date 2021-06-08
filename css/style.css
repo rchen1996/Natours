@@ -66,6 +66,7 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
@@ -74,6 +75,8 @@ body {
 
   /* to fix shaking in animation of header text */
   backface-visibility: hidden;
+
+  margin-bottom: 60px;
 }
 
 /* change the 2 span elements to use block - occupies 100% of width & forces new line */
@@ -162,6 +165,15 @@ body {
   text-decoration: none;
   padding: 15px 40px;
   display: inline-block;
+}
+
+/* -ve to move up */
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  transform: translateY(-1px);
 }
 
 .btn-white {
