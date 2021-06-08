@@ -55,6 +55,19 @@ body {
   height: 35px;
 }
 
+/* 
+- top & left based on parent element with relative positioning
+- won't be centered with just top & left because it looks at the left most/top most edge of the text-box, and not from the center
+- need transform to center the box
+- transform is relative to the element itself (move half of the width/height in positioning to center)
+*/
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
