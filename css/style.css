@@ -39,5 +39,18 @@ body {
     url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
+  position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+/* start counting px from the parent element with relative position */
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+/* size of the image itself - width will scale accordingly  */
+.logo {
+  height: 35px;
 }
