@@ -110,12 +110,19 @@ body {
 - only animate 2 properties at a time for browser optimization
 - translateX - animate in the X direction (-ve for left, +ve for right)
 - translate(0) will make it look how it looks with regular css
+- defined animations can be used more than once - can be added to hover, etc. not just run on page load
 */
 @keyframes moveInLeft {
   0% {
     opacity: 0;
     transform: translateX(-100px);
   }
+
+  /* 
+  60% {
+    transform: translateX(5px) rotate(180deg);
+  }
+  */
 
   80% {
     transform: translateX(10px);
@@ -141,4 +148,23 @@ body {
     opacity: 1;
     transform: translate(0);
   }
+}
+
+/* 
+- pseudo class to style element under special conditions
+- link: anchor element
+- visited: when user has already clicked on button once before & sees button again
+- padding: top & bottom, left & right if 2 values OR top, right, bottom, left if all 4
+ */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
