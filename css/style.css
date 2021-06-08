@@ -6,13 +6,15 @@ Dark green: #28b485
 */
 
 /* css basic reset - universal selector */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
-/* set root font size */
+/* set root font size - browser default font size is 16px */
 html {
   font-size: 62.5%;
 }
@@ -25,6 +27,9 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
+
+  /* box-sizing normally isn't inerited - force inherit with inherit in * */
+  box-sizing: border-box;
 }
 
 /* 
