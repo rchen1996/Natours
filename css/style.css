@@ -54,14 +54,14 @@ body {
 }
 
 /* start counting px from the parent element with relative position */
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
 /* size of the image itself - width will scale accordingly  */
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
@@ -71,7 +71,7 @@ body {
 - need transform to center the box
 - transform is relative to the element itself (move half of the width/height in positioning to center)
 */
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -90,7 +90,7 @@ body {
 }
 
 /* change the 2 span elements to use block - occupies 100% of width & forces new line */
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -107,7 +107,7 @@ body {
   */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -207,7 +207,7 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -234,7 +234,7 @@ pseudo element - add element that looks exactly like the button we have but behi
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -248,7 +248,7 @@ pseudo element - add element that looks exactly like the button we have but behi
 }
 
 /* animation-fill-mode: backwards -  applies styles at 0% keyframe animation before animation starts (0.75s delay) */
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
 }
