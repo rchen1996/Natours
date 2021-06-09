@@ -1,6 +1,5 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
 
   // to center
   margin: 0 auto;
@@ -14,7 +13,6 @@
 
   // attribute selector - ^= selects attributes starting with col-, *= would be contains, $= would be ends with
   [class^='col-'] {
-    background-color: orangered;
     float: left;
 
     &:not(:last-child) {
