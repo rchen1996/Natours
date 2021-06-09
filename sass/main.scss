@@ -1,0 +1,261 @@
+/*
+COLORS:
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+*/
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+
+/* css basic reset - universal selector */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* set root font size - browser default font size is 16px */
+html {
+  font-size: 62.5%;
+}
+
+/* project-wide font definitions */
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+
+  /* box-sizing normally isn't inerited - force inherit with inherit in * */
+  box-sizing: border-box;
+}
+
+/* 
+- clip-path polygon - makes a shape for where the background image should be displayed
+- coordinates: x y
+- starting in top left corner going clockwise
+- coordinates are how much of a change in each axis
+*/
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.801),
+      rgba($color-primary-dark, 0.801)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+/* start counting px from the parent element with relative position */
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+/* size of the image itself - width will scale accordingly  */
+.header__logo {
+  height: 3.5rem;
+}
+
+/* 
+- top & left based on parent element with relative positioning
+- won't be centered with just top & left because it looks at the left most/top most edge of the text-box, and not from the center
+- need transform to center the box
+- transform is relative to the element itself (move half of the width/height in positioning to center)
+*/
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  /* to fix shaking in animation of header text */
+  backface-visibility: hidden;
+
+  margin-bottom: 6rem;
+}
+
+/* change the 2 span elements to use block - occupies 100% of width & forces new line */
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+
+  /* 
+  animation-delay: 3s; - delay before animation starts
+  animation-iteration-count: 3; - how many times the animation occurs
+  animation-timing-function: ease-out - starts fast, then eases at the end
+  */
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+
+  /* can declare everything in one line instead of writing them out as in main */
+  animation: moveInRight 1s ease-out;
+}
+
+/* 
+- keyframes for animation (give it a name to be referneced - moveInLeft)
+- use % to describe what happens at each point in the animation (0 = start, 100 = end)
+- only animate 2 properties at a time for browser optimization
+- translateX - animate in the X direction (-ve for left, +ve for right)
+- translate(0) will make it look how it looks with regular css
+- defined animations can be used more than once - can be added to hover, etc. not just run on page load
+*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  /* 
+  60% {
+    transform: translateX(5px) rotate(180deg);
+  }
+  */
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opactiy: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* 
+- pseudo class to style element under special conditions
+- link: anchor element
+- visited: when user has already clicked on button once before & sees button again
+- padding: top & bottom, left & right if 2 values OR top, right, bottom, left if all 4
+ */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 1.6rem;
+}
+
+/* 
+- -ve to move up
+- x-shadow, y-shadow, blur, colour (4th number is opacity)
+*/
+.btn:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn--white {
+  background-color: $color-white;
+  color: $color-grey-dark;
+}
+
+/* 
+pseudo element - add element that looks exactly like the button we have but behind it
+- must have content & property
+- treated as a child of actual element - takes the dimensions
+- need to set position to be right under real button (use absolute - make actual button position relative)
+- z-index: defines the position of the elements if they are 1 on top of the other (-1 means under)
+- transition property goes on the initial state
+*/
+.btn::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  transition: all 0.4s;
+}
+
+.btn--white::after {
+  background-color: $color-white;
+}
+
+/*
+- only when hovered, do we want the pseudo element to grow in size (using scale)
+- use opacity: 0 to get something to fade out
+*/
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+/* animation-fill-mode: backwards -  applies styles at 0% keyframe animation before animation starts (0.75s delay) */
+.btn--animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+}
