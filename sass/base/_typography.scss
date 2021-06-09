@@ -1,0 +1,37 @@
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  /* to fix shaking in animation of header text */
+  backface-visibility: hidden;
+
+  margin-bottom: 6rem;
+
+  /* change the 2 span elements to use block - occupies 100% of width & forces new line */
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* 
+    animation-delay: 3s; - delay before animation starts
+    animation-iteration-count: 3; - how many times the animation occurs
+    animation-timing-function: ease-out - starts fast, then eases at the end
+    */
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    /* can declare everything in one line instead of writing them out as in main */
+    animation: moveInRight 1s ease-out;
+  }
+}
