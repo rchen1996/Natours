@@ -1,0 +1,57 @@
+/* 
+- keyframes for animation (give it a name to be referneced - moveInLeft)
+- use % to describe what happens at each point in the animation (0 = start, 100 = end)
+- only animate 2 properties at a time for browser optimization
+- translateX - animate in the X direction (-ve for left, +ve for right)
+- translate(0) will make it look how it looks with regular css
+- defined animations can be used more than once - can be added to hover, etc. not just run on page load
+*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  /* 
+  60% {
+    transform: translateX(5px) rotate(180deg);
+  }
+  */
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opactiy: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
