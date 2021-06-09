@@ -1,0 +1,46 @@
+/* 
+- clip-path polygon - makes a shape for where the background image should be displayed
+- coordinates: x y
+- starting in top left corner going clockwise
+- coordinates are how much of a change in each axis
+*/
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.801),
+      rgba($color-primary-dark, 0.801)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  /* start counting px from the parent element with relative position */
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  /* size of the image itself - width will scale accordingly  */
+  &__logo {
+    height: 3.5rem;
+  }
+
+  /* 
+  - top & left based on parent element with relative positioning
+  - won't be centered with just top & left because it looks at the left most/top most edge of the text-box, and not from the center
+  - need transform to center the box
+  - transform is relative to the element itself (move half of the width/height in positioning to center)
+  */
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
