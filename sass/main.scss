@@ -11,6 +11,7 @@ $color-primary-dark: #28b485;
 
 $color-grey-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 
 /* css basic reset - universal selector */
 *,
@@ -58,32 +59,32 @@ body {
   background-position: top;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
 
-/* start counting px from the parent element with relative position */
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+  /* start counting px from the parent element with relative position */
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-/* size of the image itself - width will scale accordingly  */
-.header__logo {
-  height: 3.5rem;
-}
+  /* size of the image itself - width will scale accordingly  */
+  &__logo {
+    height: 3.5rem;
+  }
 
-/* 
-- top & left based on parent element with relative positioning
-- won't be centered with just top & left because it looks at the left most/top most edge of the text-box, and not from the center
-- need transform to center the box
-- transform is relative to the element itself (move half of the width/height in positioning to center)
-*/
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  /* 
+  - top & left based on parent element with relative positioning
+  - won't be centered with just top & left because it looks at the left most/top most edge of the text-box, and not from the center
+  - need transform to center the box
+  - transform is relative to the element itself (move half of the width/height in positioning to center)
+  */
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 .heading-primary {
@@ -94,34 +95,34 @@ body {
   backface-visibility: hidden;
 
   margin-bottom: 6rem;
-}
 
-/* change the 2 span elements to use block - occupies 100% of width & forces new line */
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
+  /* change the 2 span elements to use block - occupies 100% of width & forces new line */
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
 
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 
-  /* 
-  animation-delay: 3s; - delay before animation starts
-  animation-iteration-count: 3; - how many times the animation occurs
-  animation-timing-function: ease-out - starts fast, then eases at the end
-  */
-}
+    /* 
+    animation-delay: 3s; - delay before animation starts
+    animation-iteration-count: 3; - how many times the animation occurs
+    animation-timing-function: ease-out - starts fast, then eases at the end
+    */
+  }
 
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
 
-  /* can declare everything in one line instead of writing them out as in main */
-  animation: moveInRight 1s ease-out;
+    /* can declare everything in one line instead of writing them out as in main */
+    animation: moveInRight 1s ease-out;
+  }
 }
 
 /* 
@@ -182,80 +183,82 @@ body {
   }
 }
 
-/* 
-- pseudo class to style element under special conditions
-- link: anchor element
-- visited: when user has already clicked on button once before & sees button again
-- padding: top & bottom, left & right if 2 values OR top, right, bottom, left if all 4
- */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: 1.6rem;
-}
+.btn {
+  /* 
+  - pseudo class to style element under special conditions
+  - link: anchor element
+  - visited: when user has already clicked on button once before & sees button again
+  - padding: top & bottom, left & right if 2 values OR top, right, bottom, left if all 4
+  */
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
 
-/* 
-- -ve to move up
-- x-shadow, y-shadow, blur, colour (4th number is opacity)
-*/
-.btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  /* 
+  - -ve to move up
+  - x-shadow, y-shadow, blur, colour (4th number is opacity)
+  */
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+    /*
+    - only when hovered, do we want the pseudo element to grow in size (using scale)
+    - use opacity: 0 to get something to fade out
+    */
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
 
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-}
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-/* 
-pseudo element - add element that looks exactly like the button we have but behind it
-- must have content & property
-- treated as a child of actual element - takes the dimensions
-- need to set position to be right under real button (use absolute - make actual button position relative)
-- z-index: defines the position of the elements if they are 1 on top of the other (-1 means under)
-- transition property goes on the initial state
-*/
-.btn::after {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
 
-  transition: all 0.4s;
-}
+    &::after {
+      background-color: $color-white;
+    }
+  }
 
-.btn--white::after {
-  background-color: $color-white;
-}
+  /* 
+  pseudo element - add element that looks exactly like the button we have but behind it
+  - must have content & property
+  - treated as a child of actual element - takes the dimensions
+  - need to set position to be right under real button (use absolute - make actual button position relative)
+  - z-index: defines the position of the elements if they are 1 on top of the other (-1 means under)
+  - transition property goes on the initial state
+  */
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 
-/*
-- only when hovered, do we want the pseudo element to grow in size (using scale)
-- use opacity: 0 to get something to fade out
-*/
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
+    transition: all 0.4s;
+  }
 
-/* animation-fill-mode: backwards -  applies styles at 0% keyframe animation before animation starts (0.75s delay) */
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards;
+  /* animation-fill-mode: backwards -  applies styles at 0% keyframe animation before animation starts (0.75s delay) */
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
 }
