@@ -1,0 +1,55 @@
+.row {
+  max-width: $grid-width;
+  background-color: #eee;
+
+  // to center
+  margin: 0 auto;
+
+  // add bottom margin to every row except last
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  // attribute selector - ^= selects attributes starting with col-, *= would be contains, $= would be ends with
+  [class^='col-'] {
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $guttter-horizontal;
+    }
+  }
+
+  .col-1-of-2 {
+    // width of each column is the width of each column + the gutter space
+    width: calc((100% - #{$guttter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$guttter-horizontal}) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      (2 * (100% - 2 * #{$guttter-horizontal}) / 3) + #{$guttter-horizontal}
+    );
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$guttter-horizontal}) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      (2 * (100% - 3 * #{$guttter-horizontal}) / 4) + #{$guttter-horizontal}
+    );
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      (3 * (100% - 3 * #{$guttter-horizontal}) / 4) + 2 * #{$guttter-horizontal}
+    );
+  }
+}
