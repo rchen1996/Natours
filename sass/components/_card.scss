@@ -19,6 +19,8 @@
     left: 0;
     width: 100%;
     border-radius: 3px;
+    // image overflows the corners - use this to hide the overflow of the image on the corners
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
     // hide the back part of the element when they get flipped
@@ -56,9 +58,18 @@
     background-size: cover;
     height: 23rem;
 
+    // to blend background images
+    background-blend-mode: screen;
+
     &--1 {
       // remember that this will be compiled later - so from style.css, it is 1 level up
-      background-image: url(../img/nat-5.jpg);
+      // can add multiple background images to blend
+      background-image: url(../img/nat-5.jpg),
+        linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
     }
   }
 }
