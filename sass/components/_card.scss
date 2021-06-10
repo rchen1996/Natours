@@ -44,7 +44,7 @@
   // want the card to flip when hovered
   // when you hover the CARD, you want the SIDE to transform
   &:hover &__side--front {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
 
   &:hover &__side--back {
