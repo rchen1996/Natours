@@ -61,6 +61,8 @@
     // to blend background images
     background-blend-mode: screen;
 
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
     &--1 {
       // remember that this will be compiled later - so from style.css, it is 1 level up
       // can add multiple background images to blend
