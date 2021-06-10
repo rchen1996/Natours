@@ -16,4 +16,13 @@
     ),
     url(../img/nat-4.jpg);
   background-size: cover;
+
+  // make skewed design for background
+  transform: skewY(-7deg);
+
+  // select direct child - universal selector selects everything
+  // remove skew from feature boxes
+  & > * {
+    transform: skewY(7deg);
+  }
 }
