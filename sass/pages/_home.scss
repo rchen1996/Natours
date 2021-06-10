@@ -20,6 +20,8 @@
   // make skewed design for background
   transform: skewY(-7deg);
 
+  margin-top: -10rem;
+
   // select direct child - universal selector selects everything
   // remove skew from feature boxes
   & > * {
