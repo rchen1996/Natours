@@ -1,0 +1,21 @@
+.card {
+  // perspective always goes on the parent element - makes it look like it is moving towards you
+  // the lower the perspective value, the more dramatic/big the effect
+  perspective: 150rem;
+  // for firefox
+  -moz-perspective: 150rem;
+
+  &__side {
+    background-color: orangered;
+    color: #fff;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all 0.8s;
+  }
+
+  // want the card to flip when hovered
+  // when you hover the CARD, you want the SIDE to transform
+  &:hover &__side {
+    transform: rotateY(180deg);
+  }
+}
