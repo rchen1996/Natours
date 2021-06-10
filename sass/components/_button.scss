@@ -49,6 +49,15 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /* 
   pseudo element - add element that looks exactly like the button we have but behind it
   - must have content & property
