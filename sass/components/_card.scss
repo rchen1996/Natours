@@ -9,9 +9,6 @@
   height: 50rem;
 
   &__side {
-    color: #fff;
-    font-size: 2rem;
-
     height: 50rem;
     transition: all 0.8s ease;
     position: absolute;
@@ -73,6 +70,36 @@
           $color-secondary-light,
           $color-secondary-dark
         );
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+
+    // text is on 2 lines but only 1 element, so the padding only applies at the beginning/end of the content rather than line breaks
+    // use box decoration breaks to treat it as if it was actually 2 separate boxes
+    // clone applies all the decorations to all the boxes created
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
     }
   }
 }
