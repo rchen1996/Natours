@@ -18,6 +18,8 @@
     top: 0;
     left: 0;
     width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
     // hide the back part of the element when they get flipped
     backface-visibility: hidden;
