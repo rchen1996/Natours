@@ -5,6 +5,7 @@
   background-color: $color-white;
   border-radius: 3px;
   padding: 6rem;
+  padding-left: 9rem;
   font-size: $default-font-size;
 
   &__shape {
@@ -23,5 +24,8 @@
     // form the circle
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
+
+    // add space between shape and text - don't play with margin/padding
+    transform: translateX(-3rem);
   }
 }
