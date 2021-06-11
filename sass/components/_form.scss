@@ -33,5 +33,23 @@
   }
 
   &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    // so that it aligns with the placeholder in the input field
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+  }
+
+  // use + to select adjacent sibling (must appear after)
+  // ~ is the general sibling selector
+  &__input:placeholder-shown + &__label {
+    // when placeholder is shown (nothing typed), then label hidden
+    // use opacity as well because you need to animate it - can't animate visibility
+    opacity: 0;
+    visibility: hidden;
+
+    // have it start above so that when the placeholder is no longer shown, it will slide down into place
+    transform: translateY(-4rem);
   }
 }
