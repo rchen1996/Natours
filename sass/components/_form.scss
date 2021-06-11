@@ -5,8 +5,9 @@
 
   &__input {
     font-size: 1.5rem;
-    // input elements don't inherit font-family so need to set it explicitly
+    // input elements don't inherit font properties so need to set it explicitly
     font-family: inherit;
+    color: inherit;
     padding: 1.5rem 2rem;
     border-radius: 2px;
     background-color: rgba($color-white, 0.5);
