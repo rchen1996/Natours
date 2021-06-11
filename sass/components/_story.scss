@@ -6,4 +6,22 @@
   border-radius: 3px;
   padding: 6rem;
   font-size: $default-font-size;
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    background-color: orangered;
+    float: left;
+
+    // make the text to the right of the circle curve around it
+    // shape outside defines where the content flows around the element
+    // circle(radius at radius center)
+    // element must be floated for this to work, and have width and height
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+
+    // form the circle
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+  }
 }
