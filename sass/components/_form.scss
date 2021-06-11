@@ -1,0 +1,17 @@
+.form {
+  &__group {
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    // input elements don't inherit font-family so need to set it explicitly
+    font-family: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+  }
+
+  &__label {
+  }
+}
