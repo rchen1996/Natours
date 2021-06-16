@@ -53,4 +53,14 @@
     // have it start above so that when the placeholder is no longer shown, it will slide down into place
     transform: translateY(-4rem);
   }
+
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    cursor: pointer;
+  }
 }
