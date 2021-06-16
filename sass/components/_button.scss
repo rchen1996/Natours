@@ -5,6 +5,7 @@
   - visited: when user has already clicked on button once before & sees button again
   - padding: top & bottom, left & right if 2 values OR top, right, bottom, left if all 4
   */
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -15,6 +16,10 @@
     transition: all 0.2s;
     position: relative;
     font-size: $default-font-size;
+
+    // change for button element
+    border: none;
+    cursor: pointer;
   }
 
   /* 
@@ -29,7 +34,9 @@
     - only when hovered, do we want the pseudo element to grow in size (using scale)
     - use opacity: 0 to get something to fade out
     */
-    &::after {
+    &::after,
+    &:focus {
+      outline: none;
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0;
     }
