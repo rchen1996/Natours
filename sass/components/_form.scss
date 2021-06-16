@@ -90,6 +90,13 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: $color-primary;
+      opacity: 0;
+      transition: opacity 0.2s;
     }
+  }
+
+  // when radio input is checked - need to select the sibling label & child radio button
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
   }
 }
