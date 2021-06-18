@@ -132,6 +132,8 @@
     }
 
     &::before {
+      // transform-origin: right will set the origin of rotation to the right side (if not set, it rotates around the center)
+
       top: -0.8rem;
     }
 
@@ -146,5 +148,20 @@
 
   &__button:hover &__icon::after {
     top: 1rem;
+  }
+
+  // when checkbox is checked, we select the direct sibling & child of it
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
   }
 }
