@@ -13,6 +13,7 @@
     border-radius: 50%;
     z-index: 2000;
     box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    text-align: center;
   }
 
   &__background {
@@ -109,6 +110,7 @@
 
   &__icon {
     position: relative;
+    margin-top: 3.5rem;
 
     // create the menu lines using 1 span element and before/after pseudoelements
     &,
@@ -128,11 +130,11 @@
     }
 
     &::before {
-      top: -1rem;
+      top: -0.8rem;
     }
 
     &::after {
-      top: 1rem;
+      top: 0.8rem;
     }
   }
 }
