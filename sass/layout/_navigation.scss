@@ -108,6 +108,8 @@
   }
 
   &__icon {
+    position: relative;
+
     // create the menu lines using 1 span element and before/after pseudoelements
     &,
     &::before,
@@ -121,6 +123,16 @@
     &::before,
     &::after {
       content: '';
+      position: absolute;
+      left: 0;
+    }
+
+    &::before {
+      top: -1rem;
+    }
+
+    &::after {
+      top: 1rem;
     }
   }
 }
