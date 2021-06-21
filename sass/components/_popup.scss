@@ -12,31 +12,6 @@
   visibility: hidden;
   transition: all 0.3s;
 
-  // target of the button click
-  &:target {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  &__close {
-    &:link,
-    &:visited {
-      color: $color-grey-dark;
-      position: absolute;
-      top: 2.5rem;
-      right: 2.5rem;
-      font-size: 3rem;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.2s;
-      line-height: 1;
-    }
-
-    &:hover {
-      color: $color-primary;
-    }
-  }
-
   &__content {
     @include absCenter;
     width: 75%;
@@ -48,6 +23,13 @@
     display: table;
 
     overflow: hidden;
+
+    // make it smaller at first so that when you click the popup, you can zoom in on it
+    // even though translate(-50, -50) was already defined in mixin, we need to re-write it here if we want to use scale
+    // can only have 1 transform - would override the previous one
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: all 0.4s 0.2s;
   }
 
   &__left {
@@ -81,5 +63,36 @@
     // can be set to manual/none/auto
     // requires html lang to be set to work
     hyphens: auto;
+  }
+
+  // target of the button click
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // when the target changes to the popup - change the content styling
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 }
