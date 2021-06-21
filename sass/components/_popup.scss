@@ -7,6 +7,10 @@
   background-color: rgba($color-black, 0.8);
   z-index: 9999;
 
+  // hide popup to start
+  opacity: 0;
+  visibility: hidden;
+
   &__content {
     @include absCenter;
     width: 75%;
