@@ -40,5 +40,12 @@
   &__text {
     font-size: 1.4rem;
     margin-bottom: 4rem;
+
+    column-count: 2;
+    // space between the columns
+    // default is 1em (14 px - font size)
+    column-gap: 4rem;
+    // to add a line between the columns
+    column-rule: 1px solid $color-grey-light-2;
   }
 }
