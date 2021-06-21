@@ -43,7 +43,7 @@
     }
   }
 
-  @if $breakpoinbt == tab-land {
+  @if $breakpoint == tab-land {
     @media (max-width: 75em) {
       @content;
     }
