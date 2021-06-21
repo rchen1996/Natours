@@ -47,5 +47,9 @@
     column-gap: 4rem;
     // to add a line between the columns
     column-rule: 1px solid $color-grey-light-2;
+
+    // can be set to manual/none/auto
+    // requires html lang to be set to work
+    hyphens: auto;
   }
 }
