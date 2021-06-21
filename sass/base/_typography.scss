@@ -27,6 +27,11 @@ body {
     animation-duration: 1s;
     animation-timing-function: ease-out;
 
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+
     /* 
     animation-delay: 3s; - delay before animation starts
     animation-iteration-count: 3; - how many times the animation occurs
@@ -42,6 +47,10 @@ body {
 
     /* can declare everything in one line instead of writing them out as in main */
     animation: moveInRight 1s ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
   }
 }
 
