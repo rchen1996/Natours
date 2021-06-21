@@ -13,3 +13,45 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+//  MEDIA QUERY MANAGER
+// 0 - 600 px : phone
+// 600 - 900 px : tablet portrait
+// 900 - 1200 px: tablet landscape
+// [1200 - 1800] : normal styles apply (desktop first approach)
+// 1800 px + : big desktop
+
+// $breakpoint argument choices:
+// - phone
+// - tab-port
+// - tab-land
+// - big-desktop
+
+// note about rem/em in media query: don't come from root - come from browser (16 px)
+// use em instead of rem
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoinbt == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
