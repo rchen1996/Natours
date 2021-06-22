@@ -206,12 +206,13 @@
   @include respond(tab-port) {
     // there is no longer a front/back side
     height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
 
     &__side {
       height: auto;
       // no longer have 2 sides that occupy the same space - now will have front and then back side
       position: relative;
-      border-radius: 3px;
 
       &--back {
         transform: rotateY(0);
