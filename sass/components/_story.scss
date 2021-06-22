@@ -15,6 +15,10 @@
     padding-left: 7rem;
   }
 
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
   &__shape {
     width: 15rem;
     height: 15rem;
@@ -34,6 +38,10 @@
 
     // add space between shape and text - don't play with margin/padding
     transform: translateX(-3rem) skewX(12deg);
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
   }
 
   &__img {
@@ -44,6 +52,10 @@
 
   &__text {
     transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skew(0);
+    }
   }
 
   &__caption {
