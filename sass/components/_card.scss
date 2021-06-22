@@ -208,11 +208,13 @@
     height: auto;
     border-radius: 3px;
     background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
     &__side {
       height: auto;
       // no longer have 2 sides that occupy the same space - now will have front and then back side
       position: relative;
+      box-shadow: none;
 
       &--back {
         transform: rotateY(0);
