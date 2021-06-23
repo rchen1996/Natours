@@ -32,12 +32,16 @@
     -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
 
-    // form the circle
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-
     // add space between shape and text - don't play with margin/padding
     transform: translateX(-3rem) skewX(12deg);
+
+    overflow: hidden;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0, 0)) {
+      // form the circle
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);
