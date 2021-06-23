@@ -203,7 +203,9 @@
     font-weight: 100;
   }
 
-  @include respond(tab-port) {
+  // can't use respond mixin because we want to target touch screens as well
+  // make sure that on all touch screen devices (devices that cannot hover), it will also show the view with the back of the card on the bottom
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     // there is no longer a front/back side
     height: auto;
     border-radius: 3px;
