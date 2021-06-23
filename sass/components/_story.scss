@@ -24,13 +24,7 @@
     height: 15rem;
     float: left;
     position: relative;
-
-    // make the text to the right of the circle curve around it
-    // shape outside defines where the content flows around the element
-    // circle(radius at radius center)
-    // element must be floated for this to work, and have width and height
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
+    border-radius: 50%;
 
     // add space between shape and text - don't play with margin/padding
     transform: translateX(-3rem) skewX(12deg);
@@ -41,6 +35,15 @@
       // form the circle
       -webkit-clip-path: circle(50% at 50% 50%);
       clip-path: circle(50% at 50% 50%);
+
+      // make the text to the right of the circle curve around it
+      // shape outside defines where the content flows around the element
+      // circle(radius at radius center)
+      // element must be floated for this to work, and have width and height
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+
+      border-radius: none;
     }
 
     @include respond(phone) {
